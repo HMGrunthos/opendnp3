@@ -100,7 +100,16 @@ if(DNP3_COVERAGE)
     add_coverage_flags()
 endif()
 
-# Library
+# FreeRTOS support library
+include_directories(
+  FreeRTOS/Source/include
+  FreeRTOS/Source/portable/GCC/ARM_CM7/r0p1
+  cpp11_gcc
+  TotemInc
+)
+#add_subdirectory(libstdc++_gcc)
+
+# OpenDNP Library
 add_subdirectory(./cpp/lib)
 
 # Tests
