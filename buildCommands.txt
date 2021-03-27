@@ -1,0 +1,2 @@
+cmake .. -DDNP3_STATIC_LIBS=ON -DCMAKE_INSTALL_PREFIX=/home/sam/src/Work/STM32Workspace/lib -DCMAKE_TOOLCHAIN_FILE=../arm-gcc-toolchain.cmake
+cmake --build . --verbose
