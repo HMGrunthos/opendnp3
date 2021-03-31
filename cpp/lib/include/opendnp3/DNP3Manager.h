@@ -72,6 +72,7 @@ public:
      */
     void Shutdown();
 
+#if false
     /**
      * Add a persistent TCP client channel. Automatically attempts to reconnect.
      *
@@ -89,6 +90,7 @@ public:
                                            const std::vector<IPEndpoint>& hosts,
                                            const std::string& local,
                                            std::shared_ptr<IChannelListener> listener);
+#endif
 
     /**
      * Add a persistent TCP server channel. Only accepts a single connection at a time.
@@ -107,6 +109,7 @@ public:
                                            const IPEndpoint& endpoint,
                                            std::shared_ptr<IChannelListener> listener);
 
+#if false
     /**
      * Add a persistent UDP channel.
      *
@@ -125,7 +128,9 @@ public:
                                             const IPEndpoint& localEndpoint,
                                             const IPEndpoint& remoteEndpoint,
                                             std::shared_ptr<IChannelListener> listener);
+#endif
 
+#if false
     /**
      * Add a persistent serial channel
      *
@@ -142,7 +147,9 @@ public:
                                         const ChannelRetry& retry,
                                         SerialSettings settings,
                                         std::shared_ptr<IChannelListener> listener);
+#endif
 
+#if false
     /**
      * Add a TLS client channel
      *
@@ -165,7 +172,9 @@ public:
                                            const std::string& local,
                                            const TLSConfig& config,
                                            std::shared_ptr<IChannelListener> listener);
+#endif
 
+#if false
     /**
      * Add a TLS server channel
      *
@@ -187,7 +196,9 @@ public:
                                            const IPEndpoint& endpoint,
                                            const TLSConfig& config,
                                            std::shared_ptr<IChannelListener> listener);
+#endif
 
+#if false
     /**
      * Create a TCP listener that will be used to accept incoming connections
      * @throw DNP3Error if the manager was already shutdown or if the server could not be binded properly
@@ -196,7 +207,9 @@ public:
                                               const opendnp3::LogLevels& loglevel,
                                               const IPEndpoint& endpoint,
                                               const std::shared_ptr<IListenCallbacks>& callbacks);
+#endif
 
+#if false
     /**
      * Create a TLS listener that will be used to accept incoming connections
      * @throw DNP3Error if the manager was already shutdown, if the library was compiled without TLS support
@@ -207,6 +220,7 @@ public:
                                               const IPEndpoint& endpoint,
                                               const TLSConfig& config,
                                               const std::shared_ptr<IListenCallbacks>& callbacks);
+#endif
 
 private:
     std::unique_ptr<DNP3ManagerImpl> impl;
