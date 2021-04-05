@@ -1,25 +1,17 @@
-include(FetchContent)
+find_package(Threads REQUIRED)
 
-FetchContent_Declare(
-    asio
-    URL      https://github.com/chriskohlhoff/asio/archive/asio-1-16-0.zip
-    URL_HASH SHA1=6BDD33522D5B95B36445ABB2072A481F7CE15402
+add_library(asio INTERFACE)
+target_include_directories(asio INTERFACE deps/asio/include)
+target_compile_definitions(asio INTERFACE ASIO_STANDALONE)
+target_compile_definitions(asio INTERFACE ASIO_FREERTOS)
+target_compile_definitions(asio INTERFACE ASIO_LWIP_SOCKETS)
+target_compile_definitions(asio INTERFACE ASIO_DISABLE_LOCAL_SOCKETS)
+target_compile_features(asio INTERFACE cxx_std_11)
+target_link_libraries(asio INTERFACE Threads::Threads)
+include_directories(
+	LwIP/src/include/compat/posix
+	LwIP/src/include/compat/stdc
+	ARMDrivers/STM32F7xx_HAL_Driver/Inc
+	ARMDrivers/CMSIS/Device/ST/STM32F7xx/Include
+	ARMDrivers/CMSIS/Include
 )
-
-FetchContent_GetProperties(asio)
-if(NOT asio_POPULATED)
-    FetchContent_Populate(asio)
-
-    find_package(Threads)
-
-    add_library(asio INTERFACE)
-    target_include_directories(asio INTERFACE ${asio_SOURCE_DIR}/asio/include)
-    target_compile_definitions(asio INTERFACE ASIO_STANDALONE)
-    target_compile_features(asio INTERFACE cxx_std_11)
-    target_link_libraries(asio INTERFACE Threads::Threads)
-
-    if(WIN32)
-        target_link_libraries(asio INTERFACE ws2_32 wsock32) # Link to Winsock
-        target_compile_definitions(asio INTERFACE _WIN32_WINNT=0x0601) # Windows 7 and up
-    endif()
-endif()

@@ -410,8 +410,8 @@ set(opendnp3_private_headers
 
 set(opendnp3_src
     ./src/ConsoleLogger.cpp
-    #./src/DNP3Manager.cpp
-    #./src/DNP3ManagerImpl.cpp
+    ./src/DNP3Manager.cpp
+    ./src/DNP3ManagerImpl.cpp
     ./src/ResourceManager.cpp
 
     ./src/app/AnalogCommandEvent.cpp
@@ -448,17 +448,17 @@ set(opendnp3_src
 
     # ./src/channel/ASIOSerialHelpers.cpp
     ./src/channel/ChannelRetry.cpp
-    # ./src/channel/DNP3Channel.cpp
-    # ./src/channel/IOHandler.cpp
+    ./src/channel/DNP3Channel.cpp
+    ./src/channel/IOHandler.cpp
     ./src/channel/IOpenDelayStrategy.cpp
     ./src/channel/IPEndpointsList.cpp
     # ./src/channel/SerialChannel.cpp
     # ./src/channel/SerialIOHandler.cpp
     # ./src/channel/TCPClient.cpp
     # ./src/channel/TCPClientIOHandler.cpp
-    # ./src/channel/TCPServer.cpp
-    # ./src/channel/TCPServerIOHandler.cpp
-    # ./src/channel/TCPSocketChannel.cpp
+    ./src/channel/TCPServer.cpp
+    ./src/channel/TCPServerIOHandler.cpp
+    ./src/channel/TCPSocketChannel.cpp
     # ./src/channel/UDPClient.cpp
     # ./src/channel/UDPClientIOHandler.cpp
     # ./src/channel/UDPSocketChannel.cpp
@@ -552,7 +552,7 @@ set(opendnp3_src
     ./src/link/LinkHeaderFields.cpp
     ./src/link/LinkLayer.cpp
     ./src/link/LinkLayerParser.cpp
-    # ./src/link/LinkSession.cpp
+    ./src/link/LinkSession.cpp
     ./src/link/PriLinkLayerStates.cpp
     ./src/link/SecLinkLayerStates.cpp
     ./src/link/ShiftableBuffer.cpp
@@ -575,11 +575,11 @@ set(opendnp3_src
     ./src/master/HeaderTypes.cpp
     ./src/master/IMasterTask.cpp
     ./src/master/LANTimeSyncTask.cpp
-    # ./src/master/MasterContext.cpp
-    # ./src/master/MasterScan.cpp
+    ./src/master/MasterContext.cpp
+    ./src/master/MasterScan.cpp
     ./src/master/MasterSchedulerBackend.cpp
     # ./src/master/MasterSessionStack.cpp
-    # ./src/master/MasterStack.cpp
+    ./src/master/MasterStack.cpp
     ./src/master/MasterTasks.cpp
     # ./src/master/MasterTCPServer.cpp
     ./src/master/MeasurementHandler.cpp
@@ -609,7 +609,7 @@ set(opendnp3_src
     ./src/outstation/NumRetries.cpp
     ./src/outstation/OctetStringSerializer.cpp
     ./src/outstation/OutstationContext.cpp
-    # ./src/outstation/OutstationStack.cpp
+    ./src/outstation/OutstationStack.cpp
     ./src/outstation/OutstationStates.cpp
     ./src/outstation/ReadHandler.cpp
     ./src/outstation/RequestHistory.cpp

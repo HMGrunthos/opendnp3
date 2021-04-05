@@ -106,6 +106,8 @@ include_directories(
   FreeRTOS/Source/portable/GCC/ARM_CM7/r0p1
   cpp11_gcc
   TotemInc
+  LwIP/src/include
+  LwIP/system
 )
 #add_subdirectory(libstdc++_gcc)
 
@@ -132,12 +134,12 @@ endif()
 
 # Examples
 if(DNP3_EXAMPLES)
-    add_subdirectory(./cpp/examples/decoder)
-    add_subdirectory(./cpp/examples/master)
-    add_subdirectory(./cpp/examples/master-gprs)
-    add_subdirectory(./cpp/examples/master-udp)
+#    add_subdirectory(./cpp/examples/decoder)
+#    add_subdirectory(./cpp/examples/master)
+#    add_subdirectory(./cpp/examples/master-gprs)
+#    add_subdirectory(./cpp/examples/master-udp)
     add_subdirectory(./cpp/examples/outstation)
-    add_subdirectory(./cpp/examples/outstation-udp)
+#    add_subdirectory(./cpp/examples/outstation-udp)
 
     if(DNP3_TLS)
         add_subdirectory(./cpp/examples/tls/master)
