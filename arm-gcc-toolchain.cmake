@@ -4,6 +4,7 @@ set(CMAKE_SYSTEM_PROCESSOR ARM)
 set(CMAKE_CXX_STANDARD 14)
 
 # Set a default build type if none was specified
+# set(CMAKE_BUILD_TYPE Debug)
 set(CMAKE_BUILD_TYPE Release)
 
 if(MINGW OR CYGWIN OR WIN32)
@@ -13,6 +14,8 @@ elseif(UNIX OR APPLE)
 endif()
 
 set(TOOLCHAIN_PREFIX arm-none-eabi-)
+
+set(CONFIG_DEFS -D_GLIBCXX_HAS_GTHREADS=1)
 
 execute_process(
   COMMAND ${UTIL_SEARCH_CMD} ${TOOLCHAIN_PREFIX}gcc
@@ -33,8 +36,7 @@ set(CMAKE_ASM_COMPILER ${CMAKE_C_COMPILER})
 set(CMAKE_CXX_COMPILER ${TOOLCHAIN_PREFIX}g++)
 
 # Default C compiler flags
-# set(CMAKE_C_FLAGS "-D _LIBCPP_HAS_THREAD_API_EXTERNAL -DFREERTOS=1")
-set(CMAKE_C_FLAGS "-D _LIBCPP_HAS_THREAD_API_EXTERNAL -DFREERTOS=1 -fno-builtin -nodefaultlibs")
+set(CMAKE_C_FLAGS "${CONFIG_DEFS} -DFREERTOS=1 -fno-builtin -nodefaultlibs")
 set(CMAKE_C_FLAGS_DEBUG_INIT "-g3 -Og -Wall -pedantic -DDEBUG")
 set(CMAKE_C_FLAGS_DEBUG "${CMAKE_C_FLAGS_DEBUG_INIT}" CACHE STRING "" FORCE)
 set(CMAKE_C_FLAGS_RELEASE_INIT "-O3 -Wall")
@@ -44,10 +46,8 @@ set(CMAKE_C_FLAGS_MINSIZEREL "${CMAKE_C_FLAGS_MINSIZEREL_INIT}" CACHE STRING "" 
 set(CMAKE_C_FLAGS_RELWITHDEBINFO_INIT  "-O2 -g -Wall")
 set(CMAKE_C_FLAGS_RELWITHDEBINFO "${CMAKE_ASM_FLAGS_RELWITHDEBINFO_INIT}" CACHE STRING "" FORCE)
 # Default C++ compiler flags
-# set(CMAKE_CXX_FLAGS "-D _LIBCPP_HAS_THREAD_API_EXTERNAL -DFREERTOS=1")
-# set(CMAKE_CXX_FLAGS "-D _LIBCPP_HAS_THREAD_API_EXTERNAL -DFREERTOS=1 -fno-builtin -nodefaultlibs")
-set(CMAKE_CXX_FLAGS "-D _LIBCPP_HAS_THREAD_API_EXTERNAL -DFREERTOS=1 -mcpu=cortex-m7 -DSTM32F777xx -ffunction-sections -fdata-sections --specs=standard_c_nano_cpp.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb")
-set(CMAKE_CXX_FLAGS_DEBUG_INIT "-g3 -Og -Wall -pedantic -DDEBUG")
+# set(CMAKE_CXX_FLAGS "${CONFIG_DEFS} -DFREERTOS=1 -mcpu=cortex-m7 -DSTM32F777xx -ffunction-sections -fdata-sections --specs=standard_c_nano_cpp.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb")
+set(CMAKE_CXX_FLAGS "${CONFIG_DEFS} -DFREERTOS=1 -mcpu=cortex-m7 -DSTM32F777xx -ffunction-sections -fdata-sections --specs=nosys.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb")
 set(CMAKE_CXX_FLAGS_DEBUG_INIT "-g3 -Og -Wall -pedantic -DDEBUG")
 set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_C_FLAGS_DEBUG_INIT}" CACHE STRING "" FORCE)
 set(CMAKE_CXX_FLAGS_RELEASE_INIT "-O3 -Wall")
