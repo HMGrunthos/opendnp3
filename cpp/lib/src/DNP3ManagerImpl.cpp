@@ -22,6 +22,10 @@
 
 #include <utility>
 
+#ifdef ASIO_SEPARATE_COMPILATION
+	#include <asio/impl/src.hpp>
+#endif
+
 #ifdef OPENDNP3_USE_TLS
 #include "channel/tls/MasterTLSServer.h"
 #include "channel/tls/TLSClientIOHandler.h"

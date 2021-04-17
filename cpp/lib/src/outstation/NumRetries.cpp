@@ -50,4 +50,4 @@ void NumRetries::Reset()
     this->numRetries = 0;
 }
 
-}; // namespace opendnp3
+} // namespace opendnp3

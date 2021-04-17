@@ -41,4 +41,4 @@ bool OctetStringSerializer::Write(const OctetString& value, ser4cpp::wseq_t& buf
     buffer.copy_from(slice);
     return true;
 }
-}; // namespace opendnp3
+} // namespace opendnp3

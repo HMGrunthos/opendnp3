@@ -42,6 +42,6 @@ DatabaseConfig::DatabaseConfig(uint16_t all_types)
     initialize(this->analog_output_status, all_types);
     initialize(this->time_and_interval, all_types);
     initialize(this->octet_string, all_types);
-};
+}
 
 } // namespace opendnp3

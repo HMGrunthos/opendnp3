@@ -6,6 +6,7 @@ target_compile_definitions(asio INTERFACE ASIO_STANDALONE)
 target_compile_definitions(asio INTERFACE ASIO_FREERTOS)
 target_compile_definitions(asio INTERFACE ASIO_LWIP_SOCKETS)
 target_compile_definitions(asio INTERFACE ASIO_DISABLE_LOCAL_SOCKETS)
+target_compile_definitions(asio INTERFACE ASIO_SEPARATE_COMPILATION)
 target_compile_features(asio INTERFACE cxx_std_11)
 target_link_libraries(asio INTERFACE Threads::Threads)
 include_directories(
