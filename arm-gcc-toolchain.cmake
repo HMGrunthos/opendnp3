@@ -5,8 +5,8 @@ set(CMAKE_SYSTEM_PROCESSOR ARM)
 set(CMAKE_CXX_STANDARD 14)
 
 # Set a default build type if none was specified
-set(CMAKE_BUILD_TYPE Debug)
-# set(CMAKE_BUILD_TYPE Release)
+#set(CMAKE_BUILD_TYPE Debug)
+set(CMAKE_BUILD_TYPE Release)
 
 if(MINGW OR CYGWIN OR WIN32)
     set(UTIL_SEARCH_CMD where)
