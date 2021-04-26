@@ -11,7 +11,6 @@ target_compile_features(asio INTERFACE cxx_std_11)
 target_link_libraries(asio INTERFACE Threads::Threads)
 include_directories(
 	LwIP/src/include/compat/posix
-	LwIP/src/include/compat/stdc
 	ARMDrivers/STM32F7xx_HAL_Driver/Inc
 	ARMDrivers/CMSIS/Device/ST/STM32F7xx/Include
 	ARMDrivers/CMSIS/Include

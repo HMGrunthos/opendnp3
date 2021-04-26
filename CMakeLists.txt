@@ -109,7 +109,6 @@ include_directories(
   LwIP/src/include
   LwIP/system
 )
-#add_subdirectory(libstdc++_gcc)
 
 # OpenDNP Library
 add_subdirectory(./cpp/lib)
