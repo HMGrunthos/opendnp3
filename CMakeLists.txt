@@ -105,7 +105,7 @@ include_directories(
   FreeRTOS/Source/include
   FreeRTOS/Source/portable/GCC/ARM_CM7/r0p1
   cpp11_gcc
-  TotemInc
+  HostProjectInc
   LwIP/src/include
   LwIP/system
 )
